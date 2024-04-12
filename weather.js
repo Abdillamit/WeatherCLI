@@ -1,7 +1,20 @@
 #!/ust/bin/env node 
-
+import {getArgs} from './helpers/args.js'
 const initCLI = () => {
-  console.log(process.argv);
+  const args =  getArgs(process.argv)
+  console.log(args); 
+
+  if (args.h) {
+    // Вывод help
+  }
+
+  if (args.s) {
+    // Сохранить Город
+  }
+  
+  if (args.t) {
+    // Сохранить погоду
+  }
 }
 
 initCLI();
