@@ -1,8 +1,19 @@
-#!/ust/bin/env node 
-import {getArgs} from './helpers/args.js'
-import { printHelp } from './services/log.service.js';
+#!/ust/bin/env node
+import { getArgs } from './helpers/args.js'
+import { printError, printHelp, printSuccess } from './services/log.service.js';
+import { saveKeyValue } from './services/storage.service.js';
+
+const saveToken = async (token) => {
+  try {
+    await saveKeyValue('token', token)
+    printSuccess('Токен сохранён')
+  } catch (e) {
+    printError(e.masage)
+  }
+}
+
 const initCLI = () => {
-  const args =  getArgs(process.argv) 
+  const args = getArgs(process.argv)
 
   if (args.h) {
     printHelp()
@@ -13,7 +24,7 @@ const initCLI = () => {
   }
 
   if (args.t) {
-    // Сохранить погоду
+    return saveToken(args.t)
   }
 }
 
