@@ -15,8 +15,7 @@ const printHelp = (error) => {
   -s  [CITY] для установки города
   -h для вывода помощи
   -t [API_KEY]  для сохраненя токена
-  `
-  );
+  `);
 }
 
 export {printError, printSuccess, printHelp}
